@@ -7,7 +7,6 @@ import { MessageDescriptor, useIntl } from "react-intl";
 import { usePluginConfig } from "../../hooks/usePluginConfig";
 import EditorjsField from "../editorjs_field/EditorjsField";
 import { SStyleWrapper } from "./styles";
-import { on } from "events";
 
 interface IEditorjs {
   intlLabel: MessageDescriptor;
