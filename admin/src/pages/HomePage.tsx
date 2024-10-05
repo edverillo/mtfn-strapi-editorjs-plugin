@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Main } from '@strapi/design-system';
 import { Alert } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
-import { ColorPickerInput } from '../components/ColorPickerInput';
-import { SimpleInput } from '../components/SimpleInput';
 
 import { getTranslation } from '../utils/getTranslation';
 
@@ -17,7 +15,7 @@ const HomePage = () => {
 
 
       <Alert closeLabel="Close alert" title="Title">
-        EDITOR 1
+        MTFN Editor Sandbox
       </Alert>
 
       {/* <ColorPickerInput

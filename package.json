@@ -60,7 +60,11 @@
     "editorjs-component-selector": "^0.0.4",
     "get-file-object-from-local-path": "^1.0.2",
     "open-graph-scraper": "^6.8.2",
-    "react-intl": "^6.7.0"
+    "react-intl": "^6.7.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0"
   },
   "devDependencies": {
     "@strapi/sdk-plugin": "^5.2.6",
