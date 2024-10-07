@@ -1,23 +1,6 @@
 import * as React from "react";
-
-// import { prefixFileUrlWithBackendUrl, useLibrary } from "@strapi/helper-plugin";
-
-// import { useStrapiApp } from "@strapi/strapi/admin";
-import { useStrapiApp } from "@strapi/admin/strapi-admin";
-
-// Media Library component needs to be implemented
-
-/*
-
-check package/core/upload
-strapi/packages/core/upload
-@strapi/upload
-
-
-*/
-
-
 import type { Schema } from "@strapi/types";
+import { useStrapiApp } from "@strapi/strapi/admin";
 
 interface IMediaLibComponent {
   isOpen: boolean;
@@ -44,9 +27,8 @@ export const MediaLibComponent: React.FC<IMediaLibComponent> = ({
   onToggle,
   allowedTypes,
 }) => {
-  const { components }: any = useStrapiApp('ImageDialog', (state) => state.components);
+  const { components }: any = useStrapiApp('library', (app) => app);
   const [data, setData] = React.useState<FormattedMediaFile[] | null>(null);
-
   const MediaLibraryDialog = components["media-library"] as React.ComponentType<any>;
 
   const handleInputChange = (files: FormattedMediaFile[]) => {
@@ -74,7 +56,6 @@ export const MediaLibComponent: React.FC<IMediaLibComponent> = ({
 
   if (!isOpen) {
     return null;
-
   }
 
   return (
@@ -84,6 +65,5 @@ export const MediaLibComponent: React.FC<IMediaLibComponent> = ({
       onInputMediaChange={handleInputChange}
       onSelectAssets={handleSelectAssets}
     />
-    // (<div>Media Library Component</div>)
   );
 };

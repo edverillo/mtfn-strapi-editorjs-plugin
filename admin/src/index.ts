@@ -7,33 +7,13 @@ import { prefixPluginTranslations } from './utils/prefixPluginTranslations';
 import { reducers } from "./reducers/reducers";
 
 
-
-/*
-
-      components: {
-        Input: async () =>
-          import('./components/SimpleInput').then((module) => ({
-            default: module.SimpleInput,
-          })),
-      },
-
-      components: {
-        Input: async () =>
-          import("./components/editorjs/Editorjs").then((module) => ({
-            default: module.Editorjs,
-          })),
-      },
-
-
-*/
-
 export default {
   register(app: any) {
     app.addReducers(reducers);
     app.customFields.register({
       name: 'bolla',
       pluginId: 'mtfn-editor',
-      type: 'string',
+      type: 'richtext',
       icon: PluginIcon,
       intlLabel: {
         id: getTranslation('color-picker.label'),
@@ -229,26 +209,26 @@ export default {
       },
     });
 
-    app.addMenuLink({
-      to: `plugins/${PLUGIN_ID}`,
-      icon: PluginIcon,
-      intlLabel: {
-        id: getTranslation(`${PLUGIN_ID}.label`),
-        defaultMessage: PLUGIN_ID,
-      },
-      Component: async () => {
-        const { App } = await import('./pages/App');
+    // app.addMenuLink({
+    //   to: `plugins/${PLUGIN_ID}`,
+    //   icon: PluginIcon,
+    //   intlLabel: {
+    //     id: getTranslation(`${PLUGIN_ID}.label`),
+    //     defaultMessage: PLUGIN_ID,
+    //   },
+    //   Component: async () => {
+    //     const { App } = await import('./pages/App');
 
-        return App;
-      },
-    });
+    //     return App;
+    //   },
+    // });
 
-    app.registerPlugin({
-      id: PLUGIN_ID,
-      initializer: Initializer,
-      isReady: false,
-      name: PLUGIN_ID,
-    });
+    // app.registerPlugin({
+    //   id: PLUGIN_ID,
+    //   initializer: Initializer,
+    //   isReady: false,
+    //   name: PLUGIN_ID,
+    // });
   },
 
   async registerTrads(app: any) {
