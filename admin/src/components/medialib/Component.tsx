@@ -1,5 +1,7 @@
 import * as React from "react";
 import type { Schema } from "@strapi/types";
+// @ts-ignore
+import prefixFileUrlWithBackendUrl from '../legacy-helper-plugin/prefixFileUrlWithBackendUrl';
 import { useStrapiApp } from "@strapi/strapi/admin";
 
 interface IMediaLibComponent {
@@ -37,14 +39,10 @@ export const MediaLibComponent: React.FC<IMediaLibComponent> = ({
     }
   };
 
-  //URL is prefixed with backend URL
-  //prefixFileUrlWithBackendUrl(f.url) has been deprecated
-  //passing only f.url for the moment
-
   const handleSelectAssets = (files: FormattedMediaFile[]) => {
     const formattedFiles: any = files.map((f) => ({
       alt: f.alternativeText || f.name,
-      url: f.url,
+      url: prefixFileUrlWithBackendUrl(f.url),
       width: f.width,
       height: f.height,
       size: f.size,
