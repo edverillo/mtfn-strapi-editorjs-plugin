@@ -2672,6 +2672,22 @@
     yup "0.32.9"
     zod "^3.22.4"
 
+"@strapi/utils@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-5.0.2.tgz#b9f12b8fe6f3503dec41716e7f20b37ad9c67433"
+  integrity sha512-d/lObwgAgUbkcTBvSi/9tksX6hbwB2yhgelZvho1kt3zGcfYDPW5Ga40la+a9B1UbJOE2J7sBMmAs0zfChjm2A==
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
+    date-fns "2.30.0"
+    execa "5.1.1"
+    http-errors "2.0.0"
+    lodash "4.17.21"
+    node-machine-id "1.1.12"
+    p-map "4.0.0"
+    preferred-pm "3.1.2"
+    yup "0.32.9"
+    zod "^3.22.4"
+
 "@swc/core-darwin-arm64@1.7.26":
   version "1.7.26"
   resolved "https://registry.yarnpkg.com/@swc/core-darwin-arm64/-/core-darwin-arm64-1.7.26.tgz#5f4096c00e71771ca1b18c824f0c92a052c70760"

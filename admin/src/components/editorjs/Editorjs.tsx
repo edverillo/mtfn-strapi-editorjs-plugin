@@ -97,7 +97,7 @@ export const Editorjs = React.forwardRef(
       }
     }, [transitionEnded, value]);
 
-    console.log(nodeRef.current);
+    console.log(nodeRef.current); //investigate this, returning Error element
 
     return (
       <SStyleWrapper

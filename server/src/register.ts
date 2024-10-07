@@ -5,7 +5,7 @@ const register = ({ strapi }: { strapi: Core.Strapi }) => {
   strapi.customFields.register({
     name: "bolla",
     plugin: "mtfn-editor",
-    type: "string",
+    type: "richtext",
     inputSize: {
       default: 12,
       isResizable: true,

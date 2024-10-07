@@ -21,8 +21,8 @@ import { PassThrough } from "stream";
 //   };
 // }
 
-
 export default ({ strapi }: { strapi: Core.Strapi }) => ({
+
   config: async (ctx) => {
     const config = await getService("plugin").getConfig();
     ctx.send(config);
@@ -33,35 +33,40 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
       (resolve) => {
 
 
-        resolve({
-          success: 1,
-          meta: {
-            title: 'broken',
-            description: 'broken',
-            image: 'broken',
-          },
-        });
-
-
-        // ogs(ctx.query, (error, results, response: PassThrough) => {
-        //   if (error || !("ogTitle" in results)) {
-        //     resolve({ success: 0, meta: {} });
-        //     return;
-        //   }
-        //   const customResults = results;
-        //   const imageUrl = customResults.ogImage?.url
-        //     ? { url: customResults.ogImage.url }
-        //     : undefined;
-
-        //   resolve({
-        //     success: 1,
-        //     meta: {
-        //       title: customResults.ogTitle,
-        //       description: customResults.ogDescription,
-        //       image: imageUrl,
-        //     },
-        //   });
+        // resolve({
+        //   success: 1,
+        //   meta: {
+        //     title: 'broken',
+        //     description: 'broken',
+        //     image: 'broken',
+        //   },
         // });
+
+        // @ts-ignore
+        ogs(ctx.query, (error, results, response: PassThrough) => {
+
+          console.log('error:', error);
+          console.log('results:', results);
+          console.log('response:', response);
+
+          if (error || !("ogTitle" in results)) {
+            resolve({ success: 0, meta: {} });
+            return;
+          }
+          const customResults = results;
+          const imageUrl = customResults.ogImage?.url
+            ? { url: customResults.ogImage.url }
+            : undefined;
+
+          resolve({
+            success: 1,
+            meta: {
+              title: customResults.ogTitle,
+              description: customResults.ogDescription,
+              image: imageUrl,
+            },
+          });
+        });
 
 
       }
@@ -71,6 +76,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
   },
 
   byFile: async (ctx) => {
+    console.log('byFile');
     try {
       // const { files } = parseMultipartData(ctx);
       const { files } = ctx
@@ -99,6 +105,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
   },
 
   byURL: async (ctx) => {
+    console.log('byURL');
     try {
       const { url }: any = ctx.request.body;
       const { name, ext } = path.parse(url);
