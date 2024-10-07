@@ -11,6 +11,8 @@ import { useStrapiApp } from "@strapi/admin/strapi-admin";
 
 check package/core/upload
 strapi/packages/core/upload
+@strapi/upload
+
 
 */
 
